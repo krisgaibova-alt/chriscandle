@@ -1436,3 +1436,51 @@ document.getElementById("volume")
 
 </body>
 </html>
+<section class="section" id="reviews">
+
+  <h2 class="title">reviews 💌</h2>
+
+  <p class="subtitle">
+    Нам важливо знати твою думку.
+  </p>
+
+  <div class="reviews" id="reviewsList">
+  </div>
+
+  <div class="form-box">
+
+    <h3 style="text-align:center;margin-bottom:10px">
+      Залишити свій відгук 💌
+    </h3>
+
+    <form id="reviewForm">
+
+      <label>Ім'я</label>
+      <input id="reviewName" required>
+
+      <label>Оцінка</label>
+      <select id="rating" required>
+        <option value="">Обери оцінку</option>
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+
+      <label>Відгук</label>
+      <textarea id="reviewText" required></textarea>
+
+      <button class="submit">
+        💌 Надіслати відгук
+      </button>
+
+    </form>
+
+    <div class="success" id="reviewSuccess">
+      Дякуємо за твій відгук! 🩷
+    </div>
+
+  </div>
+
+</section>
