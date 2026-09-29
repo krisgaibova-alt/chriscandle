@@ -71,7 +71,7 @@ header::before {
   color: #d84b82;
   text-shadow:
     3px 3px 0 #ffd3e4,
-    0 0 25px rgba(216,75,130,.25);
+    0 0 25px rgba(216, 75, 130, 0.25);
 }
 
 .tagline {
@@ -97,8 +97,8 @@ header::before {
   color: white;
   font-size: 17px;
   font-weight: bold;
-  box-shadow: 0 10px 25px rgba(200,63,115,.25);
-  transition: .25s;
+  box-shadow: 0 10px 25px rgba(200, 63, 115, 0.25);
+  transition: 0.25s;
 }
 
 .main-button:hover {
@@ -117,7 +117,7 @@ header::before {
   background: linear-gradient(135deg, #3b1b35, #70234c, #c05b67);
   color: white;
   text-align: center;
-  box-shadow: 0 15px 40px rgba(74,24,57,.2);
+  box-shadow: 0 15px 40px rgba(74, 24, 57, 0.2);
 }
 
 .halloween-banner h2 {
@@ -126,11 +126,11 @@ header::before {
 }
 
 .halloween-banner p {
-  opacity: .9;
+  opacity: 0.9;
 }
 
 /* =========================
-   NAVIGATION
+   MENU
 ========================= */
 
 .menu {
@@ -144,13 +144,13 @@ header::before {
 .menu a {
   text-decoration: none;
   color: #6d3049;
-  background: rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid #f3c7d7;
   border-radius: 20px;
   padding: 18px 10px;
   text-align: center;
   font-weight: bold;
-  transition: .2s;
+  transition: 0.2s;
 }
 
 .menu a:hover {
@@ -191,12 +191,12 @@ section {
 }
 
 .card {
-  background: rgba(255,255,255,.82);
+  background: rgba(255, 255, 255, 0.82);
   border: 1px solid #f1cad9;
   border-radius: 28px;
   padding: 20px;
-  box-shadow: 0 15px 35px rgba(110,42,70,.08);
-  transition: .25s;
+  box-shadow: 0 15px 35px rgba(110, 42, 70, 0.08);
+  transition: 0.25s;
 }
 
 .card:hover {
@@ -252,13 +252,13 @@ section {
 ========================= */
 
 .about {
-  background: rgba(255,255,255,.75);
+  background: rgba(255, 255, 255, 0.75);
   border: 1px solid #f1cad9;
   border-radius: 30px;
   padding: 35px;
   line-height: 1.8;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(110,42,70,.06);
+  box-shadow: 0 15px 35px rgba(110, 42, 70, 0.06);
 }
 
 /* =========================
@@ -273,7 +273,7 @@ section {
 }
 
 .review {
-  background: rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, 0.8);
   padding: 24px;
   border-radius: 22px;
   border: 1px solid #f2cada;
@@ -295,13 +295,13 @@ section {
 ========================= */
 
 .form-box {
-  background: rgba(255,255,255,.85);
+  background: rgba(255, 255, 255, 0.85);
   border: 1px solid #f1cad9;
   border-radius: 28px;
   padding: 30px;
   max-width: 700px;
   margin: 0 auto;
-  box-shadow: 0 15px 35px rgba(110,42,70,.07);
+  box-shadow: 0 15px 35px rgba(110, 42, 70, 0.07);
 }
 
 .form-box h3 {
@@ -342,7 +342,7 @@ section {
 .form-group select:focus,
 .form-group textarea:focus {
   border-color: #dc7198;
-  box-shadow: 0 0 0 3px rgba(220,113,152,.1);
+  box-shadow: 0 0 0 3px rgba(220, 113, 152, 0.1);
 }
 
 .submit-button {
@@ -392,7 +392,7 @@ section {
 }
 
 .faq details {
-  background: rgba(255,255,255,.8);
+  background: rgba(255, 255, 255, 0.8);
   border: 1px solid #f1cad9;
   border-radius: 18px;
   margin-bottom: 12px;
@@ -440,10 +440,10 @@ section {
   display: flex;
   align-items: center;
   gap: 8px;
-  background: rgba(255,255,255,.94);
+  background: rgba(255, 255, 255, 0.94);
   padding: 10px 12px;
   border-radius: 18px;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
   border: 1px solid #efc4d4;
 }
 
@@ -475,8 +475,11 @@ footer p {
   margin: 7px 0;
 }
 
-@media (max-width: 600px) {
+/* =========================
+   MOBILE
+========================= */
 
+@media (max-width: 600px) {
   .logo {
     letter-spacing: 4px;
   }
@@ -522,7 +525,7 @@ footer p {
 
   <button
     class="main-button"
-    onclick="document.getElementById('collection').scrollIntoView()"
+    onclick="document.getElementById('collection').scrollIntoView({behavior:'smooth'})"
   >
     ✨ explore collection
   </button>
@@ -530,7 +533,7 @@ footer p {
 </header>
 
 <!-- =========================
-     HALLOWEEN
+     HALLOWEEN BANNER
 ========================= -->
 
 <div class="halloween-banner">
@@ -577,9 +580,7 @@ footer p {
 
     <div class="card">
 
-      <div class="candle-image">
-        🎃
-      </div>
+      <div class="candle-image">🎃</div>
 
       <h3>Pumpkin Cream</h3>
 
@@ -587,25 +588,20 @@ footer p {
         Ніжна гарбузова свічка для теплого осіннього вечора.
       </p>
 
-      <div class="price">
-        169 грн
-      </div>
+      <div class="price">169 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Pumpkin Cream',169)"
+        onclick="chooseProduct('Pumpkin Cream')"
       >
         Замовити
       </button>
 
     </div>
 
-
     <div class="card">
 
-      <div class="candle-image">
-        👻
-      </div>
+      <div class="candle-image">👻</div>
 
       <h3>Little Ghost</h3>
 
@@ -613,25 +609,20 @@ footer p {
         Маленький милий привид для Halloween атмосфери.
       </p>
 
-      <div class="price">
-        149 грн
-      </div>
+      <div class="price">149 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Little Ghost',149)"
+        onclick="chooseProduct('Little Ghost')"
       >
         Замовити
       </button>
 
     </div>
 
-
     <div class="card">
 
-      <div class="candle-image">
-        🍪
-      </div>
+      <div class="candle-image">🍪</div>
 
       <h3>Cookie</h3>
 
@@ -639,13 +630,11 @@ footer p {
         Затишна солодка естетика для осінніх вечорів.
       </p>
 
-      <div class="price">
-        149 грн
-      </div>
+      <div class="price">149 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Cookie',149)"
+        onclick="chooseProduct('Cookie')"
       >
         Замовити
       </button>
@@ -674,9 +663,7 @@ footer p {
 
     <div class="card">
 
-      <div class="candle-image">
-        🍓
-      </div>
+      <div class="candle-image">🍓</div>
 
       <h3>Strawberry Cream</h3>
 
@@ -684,25 +671,20 @@ footer p {
         Ніжна полунична естетика.
       </p>
 
-      <div class="price">
-        159 грн
-      </div>
+      <div class="price">159 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Strawberry Cream',159)"
+        onclick="chooseProduct('Strawberry Cream')"
       >
         Замовити
       </button>
 
     </div>
 
-
     <div class="card">
 
-      <div class="candle-image">
-        ☕
-      </div>
+      <div class="candle-image">☕</div>
 
       <h3>Pink Latte</h3>
 
@@ -710,25 +692,20 @@ footer p {
         Рожевий cozy mood у формі свічки.
       </p>
 
-      <div class="price">
-        169 грн
-      </div>
+      <div class="price">169 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Pink Latte',169)"
+        onclick="chooseProduct('Pink Latte')"
       >
         Замовити
       </button>
 
     </div>
 
-
     <div class="card">
 
-      <div class="candle-image">
-        🌸
-      </div>
+      <div class="candle-image">🌸</div>
 
       <h3>Flower</h3>
 
@@ -736,13 +713,11 @@ footer p {
         Ніжна квіткова свічка для красивого декору.
       </p>
 
-      <div class="price">
-        149 грн
-      </div>
+      <div class="price">149 грн</div>
 
       <button
         class="buy-button"
-        onclick="chooseProduct('Flower',149)"
+        onclick="chooseProduct('Flower')"
       >
         Замовити
       </button>
@@ -801,70 +776,53 @@ footer p {
 
     <div class="review">
 
-      <div class="review-stars">
-        ★★★★★
-      </div>
+      <div class="review-stars">★★★★★</div>
 
       <p>
         Дуже красива свічка! Вона ідеально вписалася
         в мою кімнату.
       </p>
 
-      <div class="review-name">
-        — Софія
-      </div>
+      <div class="review-name">— Софія</div>
 
     </div>
 
-
     <div class="review">
 
-      <div class="review-stars">
-        ★★★★★
-      </div>
+      <div class="review-stars">★★★★★</div>
 
       <p>
         Замовлення прийшло дуже гарно запаковане.
         Все сподобалось!
       </p>
 
-      <div class="review-name">
-        — Кіра
-      </div>
+      <div class="review-name">— Кіра</div>
 
     </div>
 
-
     <div class="review">
 
-      <div class="review-stars">
-        ★★★★★
-      </div>
+      <div class="review-stars">★★★★★</div>
 
       <p>
         Little Ghost просто неймовірний 🎃
       </p>
 
-      <div class="review-name">
-        — Віка
-      </div>
+      <div class="review-name">— Віка</div>
 
     </div>
 
   </div>
 
-
   <div class="form-box">
 
-    <h3>
-      Залишити свій відгук 💗
-    </h3>
+    <h3>Залишити свій відгук 💗</h3>
 
     <form id="reviewForm">
 
       <div class="form-group">
 
-        <label>Ім'я</label>
+        <label for="reviewName">Ім'я</label>
 
         <input
           type="text"
@@ -874,10 +832,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Оцінка</label>
+        <label for="reviewRating">Оцінка</label>
 
         <select id="reviewRating" required>
 
@@ -892,10 +849,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Відгук</label>
+        <label for="reviewText">Відгук</label>
 
         <textarea
           id="reviewText"
@@ -903,7 +859,6 @@ footer p {
         ></textarea>
 
       </div>
-
 
       <button
         class="submit-button"
@@ -945,7 +900,7 @@ footer p {
 
       <div class="form-group">
 
-        <label>Ім'я</label>
+        <label for="orderName">Ім'я</label>
 
         <input
           type="text"
@@ -955,10 +910,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Свічка</label>
+        <label for="orderProduct">Свічка</label>
 
         <select
           id="orderProduct"
@@ -995,10 +949,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Кількість</label>
+        <label for="orderQuantity">Кількість</label>
 
         <input
           type="number"
@@ -1011,21 +964,19 @@ footer p {
 
       </div>
 
-
       <div class="total-box">
 
         Сума:
-        <span id="totalPrice">
-          0
-        </span>
+        <span id="totalPrice">0</span>
         грн
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Контакт / телефон</label>
+        <label for="orderContact">
+          Контакт / телефон
+        </label>
 
         <input
           type="text"
@@ -1035,10 +986,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Email</label>
+        <label for="orderEmail">Email</label>
 
         <input
           type="email"
@@ -1048,10 +998,11 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Доставка</label>
+        <label for="orderDelivery">
+          Доставка
+        </label>
 
         <select
           id="orderDelivery"
@@ -1074,10 +1025,9 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>
+        <label for="orderWishes">
           Побажання до замовлення
         </label>
 
@@ -1088,7 +1038,6 @@ footer p {
 
       </div>
 
-
       <button
         class="submit-button"
         type="submit"
@@ -1097,7 +1046,6 @@ footer p {
       </button>
 
     </form>
-
 
     <div
       class="success"
@@ -1114,7 +1062,8 @@ footer p {
 
       <button
         class="main-button"
-        onclick="document.getElementById('reviews').scrollIntoView()"
+        type="button"
+        onclick="document.getElementById('reviews').scrollIntoView({behavior:'smooth'})"
       >
         💌 Залишити відгук
       </button>
@@ -1145,7 +1094,7 @@ footer p {
 
       <div class="form-group">
 
-        <label>Ім'я</label>
+        <label for="supportName">Ім'я</label>
 
         <input
           type="text"
@@ -1155,10 +1104,11 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Контакт</label>
+        <label for="supportContact">
+          Контакт
+        </label>
 
         <input
           type="text"
@@ -1168,10 +1118,11 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Email</label>
+        <label for="supportEmail">
+          Email
+        </label>
 
         <input
           type="email"
@@ -1181,10 +1132,11 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Тема</label>
+        <label for="supportTopic">
+          Тема
+        </label>
 
         <select
           id="supportTopic"
@@ -1219,10 +1171,11 @@ footer p {
 
       </div>
 
-
       <div class="form-group">
 
-        <label>Повідомлення</label>
+        <label for="supportMessage">
+          Повідомлення
+        </label>
 
         <textarea
           id="supportMessage"
@@ -1230,7 +1183,6 @@ footer p {
         ></textarea>
 
       </div>
-
 
       <button
         class="submit-button"
@@ -1240,7 +1192,6 @@ footer p {
       </button>
 
     </form>
-
 
     <div
       class="success"
@@ -1277,7 +1228,6 @@ footer p {
 
     </details>
 
-
     <details>
 
       <summary>
@@ -1291,7 +1241,6 @@ footer p {
 
     </details>
 
-
     <details>
 
       <summary>
@@ -1304,7 +1253,6 @@ footer p {
       </p>
 
     </details>
-
 
     <details>
 
@@ -1358,6 +1306,7 @@ footer p {
 
   <button
     id="musicButton"
+    type="button"
     onclick="toggleMusic()"
   >
     🎃 Music
@@ -1380,85 +1329,87 @@ footer p {
 
 <footer>
 
-  <p>
-    🕯️ CHRISCANDLE
-  </p>
+  <p>🕯️ CHRISCANDLE</p>
 
-  <p>
-    handmade with love
-  </p>
+  <p>handmade with love</p>
 
-  <p>
-    🎃 autumn • pink • spooky
-  </p>
+  <p>🎃 autumn • pink • spooky</p>
 
 </footer>
 
+<!-- =====================================================
+     JAVASCRIPT
+     ВЕСЬ JAVASCRIPT ЗНАХОДИТЬСЯ ТІЛЬКИ ТУТ
+===================================================== -->
 
 <script>
 
-/* =========================================
-   CHRISCANDLE SETTINGS
-========================================= */
+/* =====================================================
+   SERVER
+===================================================== */
 
-const SERVER_URL =
-  "https://chriscandle.onrender.com";
+const SERVER_URL = "https://chriscandle.onrender.com";
 
 
-/* =========================================
-   ORDER
-========================================= */
+/* =====================================================
+   ORDER ELEMENTS
+===================================================== */
 
-const productSelect =
-  document.getElementById("orderProduct");
+const productSelect = document.getElementById("orderProduct");
+const quantityInput = document.getElementById("orderQuantity");
+const totalPrice = document.getElementById("totalPrice");
 
-const quantityInput =
-  document.getElementById("orderQuantity");
 
-const totalPrice =
-  document.getElementById("totalPrice");
-
+/* =====================================================
+   CALCULATE TOTAL
+===================================================== */
 
 function updateTotal() {
 
-  if (!productSelect || !quantityInput) {
+  if (!productSelect || !quantityInput || !totalPrice) {
     return;
   }
 
-  const option =
-    productSelect.options[
-      productSelect.selectedIndex
-    ];
+  const selectedOption =
+    productSelect.options[productSelect.selectedIndex];
 
   const price =
-    Number(option?.dataset?.price || 0);
+    Number(selectedOption?.dataset?.price || 0);
 
   const quantity =
     Number(quantityInput.value || 0);
 
-  totalPrice.textContent =
-    price * quantity;
+  totalPrice.textContent = price * quantity;
 }
 
 
-if (productSelect) {
-  productSelect.addEventListener(
-    "change",
-    updateTotal
-  );
-}
+/* =====================================================
+   ORDER PRODUCT CHANGE
+===================================================== */
 
-if (quantityInput) {
-  quantityInput.addEventListener(
-    "input",
-    updateTotal
-  );
-}
+productSelect.addEventListener(
+  "change",
+  updateTotal
+);
 
 
-function chooseProduct(name, price) {
+/* =====================================================
+   ORDER QUANTITY CHANGE
+===================================================== */
 
-  productSelect.value = name;
+quantityInput.addEventListener(
+  "input",
+  updateTotal
+);
+
+
+/* =====================================================
+   CHOOSE PRODUCT FROM CARD
+===================================================== */
+
+function chooseProduct(productName) {
+
+  productSelect.value = productName;
 
   quantityInput.value = 1;
 
@@ -1472,9 +1423,9 @@ function chooseProduct(name, price) {
 }
 
 
-/* =========================================
+/* =====================================================
    ORDER FORM
-========================================= */
+===================================================== */
 
 document
   .getElementById("orderForm")
@@ -1484,46 +1435,31 @@ document
 
       event.preventDefault();
 
-      const selected =
-        productSelect.options[
-          productSelect.selectedIndex
-        ];
-
       const data = {
 
         name:
-          document
-            .getElementById("orderName")
-            .value,
+          document.getElementById("orderName").value.trim(),
 
         product:
           productSelect.value,
 
         quantity:
-          quantityInput.value,
+          Number(quantityInput.value),
 
         contact:
-          document
-            .getElementById("orderContact")
-            .value,
+          document.getElementById("orderContact").value.trim(),
 
         email:
-          document
-            .getElementById("orderEmail")
-            .value,
+          document.getElementById("orderEmail").value.trim(),
 
         delivery:
-          document
-            .getElementById("orderDelivery")
-            .value,
+          document.getElementById("orderDelivery").value,
 
         wishes:
-          document
-            .getElementById("orderWishes")
-            .value,
+          document.getElementById("orderWishes").value.trim(),
 
         total:
-          totalPrice.textContent
+          Number(totalPrice.textContent)
 
       };
 
@@ -1537,12 +1473,10 @@ document
               method: "POST",
 
               headers: {
-                "Content-Type":
-                  "application/json"
+                "Content-Type": "application/json"
               },
 
-              body:
-                JSON.stringify(data)
+              body: JSON.stringify(data)
             }
           );
 
@@ -1551,45 +1485,46 @@ document
           await response.json();
 
 
-        if (!result.success) {
-          throw new Error(
-            "Order failed"
-          );
+        if (!response.ok || !result.success) {
+          throw new Error("Order failed");
         }
 
 
-        document
-          .getElementById("orderSuccess")
-          .style.display = "block";
+        const success =
+          document.getElementById("orderSuccess");
+
+        success.style.display = "block";
 
 
         this.reset();
 
         totalPrice.textContent = "0";
 
-        document
-          .getElementById("orderSuccess")
-          .scrollIntoView({
-            behavior: "smooth"
-          });
 
+        success.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
 
-      } catch (error) {
+      }
+
+      catch (error) {
+
+        console.error(error);
 
         alert(
           "Не вдалося надіслати замовлення. Спробуй ще раз."
         );
 
-        console.error(error);
       }
 
     }
   );
 
 
-/* =========================================
+/* =====================================================
    REVIEW FORM
-========================================= */
+===================================================== */
 
 document
   .getElementById("reviewForm")
@@ -1599,23 +1534,16 @@ document
 
       event.preventDefault();
 
-
       const data = {
 
         name:
-          document
-            .getElementById("reviewName")
-            .value,
+          document.getElementById("reviewName").value.trim(),
 
         rating:
-          document
-            .getElementById("reviewRating")
-            .value,
+          document.getElementById("reviewRating").value,
 
         review:
-          document
-            .getElementById("reviewText")
-            .value
+          document.getElementById("reviewText").value.trim()
 
       };
 
@@ -1629,12 +1557,10 @@ document
               method: "POST",
 
               headers: {
-                "Content-Type":
-                  "application/json"
+                "Content-Type": "application/json"
               },
 
-              body:
-                JSON.stringify(data)
+              body: JSON.stringify(data)
             }
           );
 
@@ -1643,10 +1569,8 @@ document
           await response.json();
 
 
-        if (!result.success) {
-          throw new Error(
-            "Review failed"
-          );
+        if (!response.ok || !result.success) {
+          throw new Error("Review failed");
         }
 
 
@@ -1657,23 +1581,25 @@ document
 
         this.reset();
 
+      }
 
-      } catch (error) {
+      catch (error) {
+
+        console.error(error);
 
         alert(
           "Не вдалося надіслати відгук. Спробуй ще раз."
         );
 
-        console.error(error);
       }
 
     }
   );
 
 
-/* =========================================
+/* =====================================================
    SUPPORT FORM
-========================================= */
+===================================================== */
 
 document
   .getElementById("supportForm")
@@ -1683,33 +1609,22 @@ document
 
       event.preventDefault();
 
-
       const data = {
 
         name:
-          document
-            .getElementById("supportName")
-            .value,
+          document.getElementById("supportName").value.trim(),
 
         contact:
-          document
-            .getElementById("supportContact")
-            .value,
+          document.getElementById("supportContact").value.trim(),
 
         email:
-          document
-            .getElementById("supportEmail")
-            .value,
+          document.getElementById("supportEmail").value.trim(),
 
         topic:
-          document
-            .getElementById("supportTopic")
-            .value,
+          document.getElementById("supportTopic").value,
 
         message:
-          document
-            .getElementById("supportMessage")
-            .value
+          document.getElementById("supportMessage").value.trim()
 
       };
 
@@ -1723,12 +1638,10 @@ document
               method: "POST",
 
               headers: {
-                "Content-Type":
-                  "application/json"
+                "Content-Type": "application/json"
               },
 
-              body:
-                JSON.stringify(data)
+              body: JSON.stringify(data)
             }
           );
 
@@ -1737,10 +1650,8 @@ document
           await response.json();
 
 
-        if (!result.success) {
-          throw new Error(
-            "Support failed"
-          );
+        if (!response.ok || !result.success) {
+          throw new Error("Support failed");
         }
 
 
@@ -1751,23 +1662,26 @@ document
 
         this.reset();
 
+      }
 
-      } catch (error) {
+      catch (error) {
+
+        console.error(error);
 
         alert(
           "Не вдалося надіслати повідомлення. Спробуй ще раз."
         );
 
-        console.error(error);
       }
 
     }
   );
 
 
-/* =========================================
+/* =====================================================
    HALLOWEEN MUSIC
-========================================= */
+   ОРИГІНАЛЬНА SPOOKY-МЕЛОДІЯ
+===================================================== */
 
 let audioContext = null;
 let masterGain = null;
@@ -1775,11 +1689,6 @@ let musicTimer = null;
 let musicOn = false;
 let melodyIndex = 0;
 
-
-/*
-  Оригінальна spooky-мелодія.
-  Вона не копіює конкретну пісню.
-*/
 
 const melody = [
 
@@ -1798,6 +1707,10 @@ const melody = [
 ];
 
 
+/* =====================================================
+   AUDIO SETUP
+===================================================== */
+
 function setupAudio() {
 
   if (audioContext) {
@@ -1805,18 +1718,33 @@ function setupAudio() {
   }
 
 
+  const AudioContextClass =
+    window.AudioContext ||
+    window.webkitAudioContext;
+
+
+  if (!AudioContextClass) {
+
+    alert(
+      "Твій браузер не підтримує музичний режим."
+    );
+
+    return;
+  }
+
+
   audioContext =
-    new (
-      window.AudioContext ||
-      window.webkitAudioContext
-    )();
+    new AudioContextClass();
 
 
   masterGain =
     audioContext.createGain();
 
 
-  masterGain.gain.value = 0.25;
+  masterGain.gain.value =
+    Number(
+      document.getElementById("volumeControl").value
+    ) / 100;
 
 
   masterGain.connect(
@@ -1825,12 +1753,21 @@ function setupAudio() {
 }
 
 
+/* =====================================================
+   PLAY NOTE
+===================================================== */
+
 function playNote(
   frequency,
   duration,
   volume,
   type
 ) {
+
+  if (!audioContext || !masterGain) {
+    return;
+  }
+
 
   const oscillator =
     audioContext.createOscillator();
@@ -1840,6 +1777,7 @@ function playNote(
 
 
   oscillator.type = type;
+
 
   oscillator.frequency.setValueAtTime(
     frequency,
@@ -1874,19 +1812,27 @@ function playNote(
 
 
   oscillator.stop(
-    audioContext.currentTime +
-    duration
+    audioContext.currentTime + duration
   );
 }
 
 
+/* =====================================================
+   HALLOWEEN BEAT
+===================================================== */
+
 function playHalloweenBeat() {
+
+  if (!audioContext) {
+    return;
+  }
+
 
   const note =
     melody[melodyIndex];
 
 
-  /* Основний spooky звук */
+  /* Основна мелодія */
 
   playNote(
     note,
@@ -1896,11 +1842,9 @@ function playHalloweenBeat() {
   );
 
 
-  /* Низький бас */
+  /* Низький spooky бас */
 
-  if (
-    melodyIndex % 4 === 0
-  ) {
+  if (melodyIndex % 4 === 0) {
 
     const bassNotes = [
       98,
@@ -1912,9 +1856,7 @@ function playHalloweenBeat() {
 
     const bass =
       bassNotes[
-        Math.floor(
-          melodyIndex / 4
-        ) % 4
+        Math.floor(melodyIndex / 4) % 4
       ];
 
 
@@ -1927,7 +1869,7 @@ function playHalloweenBeat() {
   }
 
 
-  /* Високі spooky дзвіночки */
+  /* Високий spooky звук */
 
   if (
     melodyIndex === 3 ||
@@ -1957,17 +1899,40 @@ function playHalloweenBeat() {
 }
 
 
-function startMusic() {
+/* =====================================================
+   STOP MUSIC
+===================================================== */
+
+function stopMusic() {
+
+  if (musicTimer !== null) {
+
+    clearInterval(musicTimer);
+
+    musicTimer = null;
+  }
+}
+
+
+/* =====================================================
+   START MUSIC
+===================================================== */
+
+async function startMusic() {
 
   setupAudio();
 
 
+  if (!audioContext) {
+    return;
+  }
+
+
   if (
-    audioContext.state ===
-    "suspended"
+    audioContext.state === "suspended"
   ) {
 
-    audioContext.resume();
+    await audioContext.resume();
   }
 
 
@@ -1988,27 +1953,22 @@ function startMusic() {
 }
 
 
-function stopMusic() {
-
-  if (musicTimer) {
-
-    clearInterval(
-      musicTimer
-    );
-
-    musicTimer = null;
-  }
-}
-
+/* =====================================================
+   MUSIC BUTTON
+===================================================== */
 
 async function toggleMusic() {
 
   setupAudio();
 
 
+  if (!audioContext) {
+    return;
+  }
+
+
   if (
-    audioContext.state ===
-    "suspended"
+    audioContext.state === "suspended"
   ) {
 
     await audioContext.resume();
@@ -2016,25 +1976,25 @@ async function toggleMusic() {
 
 
   const button =
-    document.getElementById(
-      "musicButton"
-    );
+    document.getElementById("musicButton");
 
 
   if (!musicOn) {
 
     musicOn = true;
 
-    startMusic();
+    await startMusic();
 
 
     if (button) {
 
-      button.innerText =
+      button.textContent =
         "🔇 Stop music";
     }
 
-  } else {
+  }
+
+  else {
 
     musicOn = false;
 
@@ -2043,38 +2003,40 @@ async function toggleMusic() {
 
     if (button) {
 
-      button.innerText =
+      button.textContent =
         "🎃 Music";
     }
   }
 }
 
 
-/* =========================================
+/* =====================================================
    VOLUME
-========================================= */
+===================================================== */
 
 const volumeControl =
-  document.getElementById(
-    "volumeControl"
-  );
+  document.getElementById("volumeControl");
 
 
-if (volumeControl) {
+volumeControl.addEventListener(
+  "input",
+  function() {
 
-  volumeControl.addEventListener(
-    "input",
-    function() {
+    if (masterGain) {
 
-      if (masterGain) {
-
-        masterGain.gain.value =
-          Number(this.value) / 100;
-      }
-
+      masterGain.gain.value =
+        Number(this.value) / 100;
     }
-  );
-}
+
+  }
+);
+
+
+/* =====================================================
+   INITIAL TOTAL
+===================================================== */
+
+updateTotal();
 
 </script>
 
