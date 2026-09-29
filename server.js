@@ -6,9 +6,39 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_ANON_KEY = process.env.SUPABASE_ANON_KEY;
+
+
+/* =========================
+   🏠 ГОЛОВНА
+========================= */
+
 app.get("/", (req, res) => {
   res.send("CHRISCANDLE bot server is working!");
 });
+
+
+/* =========================
+   💬 SUPABASE
+========================= */
+
+async function supabaseFetch(path, options = {}) {
+  return fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
+    ...options,
+    headers: {
+      apikey: SUPABASE_ANON_KEY,
+      Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+      "Content-Type": "application/json",
+      ...(options.headers || {})
+    }
+  });
+}
+
+
+/* =========================
+   📱 TELEGRAM
+========================= */
 
 async function sendTelegram(message) {
   const response = await fetch(
@@ -70,7 +100,43 @@ app.post("/api/order", async (req, res) => {
 
 
 /* =========================
-   💌 ВІДГУК
+   💌 ОТРИМАТИ ВІДГУКИ
+========================= */
+
+app.get("/api/reviews", async (req, res) => {
+  try {
+    const response = await supabaseFetch(
+      "reviews?select=id,name,rating,review,created_at&order=created_at.desc"
+    );
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error("Supabase GET error:", errorText);
+
+      return res.status(500).json({
+        success: false
+      });
+    }
+
+    const reviews = await response.json();
+
+    res.json({
+      success: true,
+      reviews
+    });
+
+  } catch (error) {
+    console.error("Reviews loading error:", error);
+
+    res.status(500).json({
+      success: false
+    });
+  }
+});
+
+
+/* =========================
+   💌 НОВИЙ ВІДГУК
 ========================= */
 
 app.post("/api/review", async (req, res) => {
@@ -81,24 +147,96 @@ app.post("/api/review", async (req, res) => {
       review
     } = req.body;
 
-    const message =
-      `💌 НОВИЙ ВІДГУК — CHRISCANDLE\n\n` +
-      `👤 Ім'я: ${name}\n` +
-      `⭐ Оцінка: ${rating}/5\n` +
-      `💬 Відгук: ${review}`;
+    const cleanName = String(name || "").trim();
+    const cleanReview = String(review || "").trim();
+    const cleanRating = Number(rating);
 
-    const result = await sendTelegram(message);
-
-    if (!result.ok) {
-      console.error("Telegram error:", result);
-      return res.status(500).json({ success: false });
+    if (
+      !cleanName ||
+      !cleanReview ||
+      !Number.isInteger(cleanRating) ||
+      cleanRating < 1 ||
+      cleanRating > 5
+    ) {
+      return res.status(400).json({
+        success: false,
+        message: "Неправильні дані відгуку"
+      });
     }
 
-    res.json({ success: true });
+    if (cleanName.length > 50) {
+      return res.status(400).json({
+        success: false,
+        message: "Ім'я занадто довге"
+      });
+    }
+
+    if (cleanReview.length > 1000) {
+      return res.status(400).json({
+        success: false,
+        message: "Відгук занадто довгий"
+      });
+    }
+
+
+    /* Зберігаємо відгук у Supabase */
+
+    const saveResponse = await supabaseFetch("reviews", {
+      method: "POST",
+      headers: {
+        Prefer: "return=representation"
+      },
+      body: JSON.stringify({
+        name: cleanName,
+        rating: cleanRating,
+        review: cleanReview
+      })
+    });
+
+    if (!saveResponse.ok) {
+      const errorText = await saveResponse.text();
+
+      console.error("Supabase review error:", errorText);
+
+      return res.status(500).json({
+        success: false
+      });
+    }
+
+    const savedReview = await saveResponse.json();
+
+
+    /* Надсилаємо повідомлення в Telegram */
+
+    try {
+      const message =
+        `💌 НОВИЙ ВІДГУК — CHRISCANDLE\n\n` +
+        `👤 Ім'я: ${cleanName}\n` +
+        `⭐ Оцінка: ${cleanRating}/5\n` +
+        `💬 Відгук: ${cleanReview}`;
+
+      const telegramResult = await sendTelegram(message);
+
+      if (!telegramResult.ok) {
+        console.error("Telegram review error:", telegramResult);
+      }
+
+    } catch (telegramError) {
+      console.error("Telegram notification error:", telegramError);
+    }
+
+
+    res.json({
+      success: true,
+      review: savedReview[0]
+    });
 
   } catch (error) {
     console.error("Review error:", error);
-    res.status(500).json({ success: false });
+
+    res.status(500).json({
+      success: false
+    });
   }
 });
 
@@ -129,14 +267,22 @@ app.post("/api/support", async (req, res) => {
 
     if (!result.ok) {
       console.error("Telegram support error:", result);
-      return res.status(500).json({ success: false });
+
+      return res.status(500).json({
+        success: false
+      });
     }
 
-    res.json({ success: true });
+    res.json({
+      success: true
+    });
 
   } catch (error) {
     console.error("Support error:", error);
-    res.status(500).json({ success: false });
+
+    res.status(500).json({
+      success: false
+    });
   }
 });
 
