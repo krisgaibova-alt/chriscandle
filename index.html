@@ -1,0 +1,1438 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHRISCANDLE 🕯️</title>
+
+<style>
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:Arial, sans-serif;
+  background:
+    radial-gradient(circle at 20% 10%,#ffd6ed 0,transparent 28%),
+    radial-gradient(circle at 85% 25%,#ffe0c2 0,transparent 25%),
+    linear-gradient(180deg,#fff8fc,#fff0f7,#fff7f1);
+  color:#3b2432;
+  overflow-x:hidden;
+}
+
+/* ===== FLOATING DECOR ===== */
+
+.decor{
+  position:fixed;
+  pointer-events:none;
+  z-index:20;
+  animation:float 5s ease-in-out infinite;
+}
+
+.bat{
+  font-size:30px;
+}
+
+.bat1{top:15%;left:3%}
+.bat2{top:32%;right:4%;animation-delay:1s}
+.bat3{top:70%;left:6%;animation-delay:2s}
+.bat4{top:52%;right:8%;animation-delay:3s}
+
+.ghost1{top:25%;left:15%;font-size:25px;animation-delay:1.5s}
+.ghost2{top:78%;right:12%;font-size:28px;animation-delay:2.5s}
+
+.pumpkin1{top:9%;right:14%;font-size:27px}
+.pumpkin2{top:63%;left:2%;font-size:25px;animation-delay:1s}
+
+@keyframes float{
+  0%,100%{transform:translateY(0) rotate(-3deg)}
+  50%{transform:translateY(-12px) rotate(4deg)}
+}
+
+/* ===== MUSIC ===== */
+
+.music-box{
+  position:fixed;
+  right:18px;
+  bottom:18px;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:10px 14px;
+  border-radius:30px;
+  background:rgba(255,255,255,.9);
+  box-shadow:0 8px 30px rgba(120,50,90,.18);
+  backdrop-filter:blur(10px);
+}
+
+.music-box button{
+  border:0;
+  background:#f5a8cf;
+  color:white;
+  border-radius:20px;
+  padding:8px 13px;
+  cursor:pointer;
+}
+
+.music-box input{
+  width:70px;
+}
+
+/* ===== HERO ===== */
+
+.hero{
+  min-height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+  position:relative;
+}
+
+.hero-content{
+  max-width:800px;
+}
+
+.mini{
+  display:inline-block;
+  padding:8px 15px;
+  border-radius:30px;
+  background:#fff;
+  color:#a64d79;
+  font-size:13px;
+  letter-spacing:2px;
+  box-shadow:0 8px 25px #e9a8c844;
+  margin-bottom:20px;
+}
+
+.logo{
+  font-size:clamp(48px,10vw,105px);
+  letter-spacing:8px;
+  font-weight:900;
+  background:linear-gradient(90deg,#d86ca5,#f39a65,#d86ca5);
+  -webkit-background-clip:text;
+  color:transparent;
+}
+
+.hero h2{
+  font-size:22px;
+  font-weight:400;
+  margin:10px 0;
+}
+
+.hero p{
+  max-width:550px;
+  margin:20px auto;
+  line-height:1.7;
+  color:#79566b;
+}
+
+.main-btn{
+  display:inline-block;
+  border:0;
+  padding:15px 28px;
+  border-radius:30px;
+  background:linear-gradient(90deg,#e889b9,#f5a46e);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+  box-shadow:0 12px 30px #dc83af55;
+  transition:.3s;
+}
+
+.main-btn:hover{
+  transform:translateY(-3px) scale(1.03);
+}
+
+/* ===== HALLOWEEN BANNER ===== */
+
+.halloween-banner{
+  margin:0 auto 35px;
+  max-width:1100px;
+  padding:18px;
+  border-radius:25px;
+  background:
+    linear-gradient(90deg,#321a32,#572443,#321a32);
+  color:#ffd4e9;
+  text-align:center;
+  box-shadow:0 15px 40px #35172c33;
+  position:relative;
+  overflow:hidden;
+}
+
+.halloween-banner span{
+  margin:0 8px;
+}
+
+.halloween-banner strong{
+  color:#ffb078;
+}
+
+/* ===== MENU ===== */
+
+.menu{
+  max-width:1100px;
+  margin:auto;
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(145px,1fr));
+  gap:14px;
+}
+
+.menu-card{
+  background:#ffffffc9;
+  border:1px solid #ffffff;
+  padding:22px 12px;
+  border-radius:22px;
+  text-align:center;
+  cursor:pointer;
+  box-shadow:0 10px 30px #c982a51a;
+  transition:.3s;
+  backdrop-filter:blur(8px);
+}
+
+.menu-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 15px 35px #c982a544;
+}
+
+.menu-card .icon{
+  font-size:30px;
+  margin-bottom:8px;
+}
+
+.menu-card h3{
+  font-size:15px;
+}
+
+.menu-card p{
+  font-size:12px;
+  color:#8d6b7d;
+  margin-top:5px;
+}
+
+/* ===== SECTIONS ===== */
+
+.section{
+  max-width:1100px;
+  margin:auto;
+  padding:90px 20px;
+}
+
+.title{
+  text-align:center;
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+.subtitle{
+  text-align:center;
+  color:#8b6c7c;
+  margin-bottom:40px;
+}
+
+/* ===== PRODUCTS ===== */
+
+.collection-label{
+  display:inline-block;
+  padding:7px 13px;
+  border-radius:20px;
+  background:#ffe3ef;
+  color:#a04473;
+  font-size:12px;
+  margin-bottom:18px;
+}
+
+.collection-label.halloween{
+  background:#ffe0c8;
+  color:#a65326;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:22px;
+}
+
+.product{
+  background:#ffffffd9;
+  border-radius:28px;
+  overflow:hidden;
+  box-shadow:0 12px 35px #8e54751c;
+  transition:.3s;
+  border:1px solid #fff;
+}
+
+.product:hover{
+  transform:translateY(-7px);
+}
+
+.product-img{
+  height:220px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:85px;
+  background:
+    radial-gradient(circle,#fff 0,#ffd9ea 50%,#f7b1d1 100%);
+}
+
+.product.halloween .product-img{
+  background:
+    radial-gradient(circle,#fff1df 0,#ffc99e 45%,#a85c63 100%);
+}
+
+.product-info{
+  padding:20px;
+}
+
+.product h3{
+  margin-bottom:7px;
+}
+
+.product p{
+  font-size:14px;
+  line-height:1.5;
+  color:#806576;
+  min-height:65px;
+}
+
+.price{
+  font-size:20px;
+  font-weight:bold;
+  color:#c84d88;
+  margin-top:14px;
+}
+
+.seasonal{
+  display:inline-block;
+  margin-top:8px;
+  font-size:11px;
+  background:#3b2432;
+  color:#ffd2e5;
+  padding:5px 9px;
+  border-radius:20px;
+}
+
+/* ===== ABOUT ===== */
+
+.about{
+  background:#ffffffa8;
+  border-radius:35px;
+  padding:40px;
+  line-height:1.8;
+  box-shadow:0 15px 40px #9b59771a;
+}
+
+.about strong{
+  color:#c34e86;
+}
+
+/* ===== FORMS ===== */
+
+.form-box{
+  max-width:650px;
+  margin:auto;
+  background:#ffffffdc;
+  padding:30px;
+  border-radius:30px;
+  box-shadow:0 15px 40px #9b59771a;
+}
+
+.form-box label{
+  display:block;
+  margin:14px 0 7px;
+  font-size:14px;
+  font-weight:bold;
+}
+
+.form-box input,
+.form-box select,
+.form-box textarea{
+  width:100%;
+  padding:13px;
+  border:1px solid #efc8dc;
+  border-radius:14px;
+  background:#fff;
+  outline:none;
+  font-family:inherit;
+}
+
+.form-box textarea{
+  min-height:120px;
+  resize:vertical;
+}
+
+.submit{
+  width:100%;
+  margin-top:20px;
+  border:0;
+  padding:14px;
+  border-radius:20px;
+  background:linear-gradient(90deg,#df79ad,#f19b70);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.success{
+  display:none;
+  margin-top:18px;
+  padding:15px;
+  border-radius:15px;
+  background:#e7f8e9;
+  color:#397044;
+  text-align:center;
+}
+
+/* ===== REVIEWS ===== */
+
+.reviews{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:18px;
+  margin-bottom:35px;
+}
+
+.review{
+  background:#fff;
+  padding:22px;
+  border-radius:24px;
+  box-shadow:0 10px 30px #99587816;
+}
+
+.stars{
+  color:#efa34e;
+  margin-bottom:8px;
+}
+
+/* ===== FAQ ===== */
+
+.faq{
+  max-width:750px;
+  margin:auto;
+}
+
+details{
+  background:#fff;
+  margin:12px 0;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 8px 25px #99587812;
+}
+
+summary{
+  cursor:pointer;
+  font-weight:bold;
+}
+
+/* ===== SUPPORT ===== */
+
+.support-box{
+  background:
+    radial-gradient(circle at top right,#ffd5e8,transparent 35%),
+    linear-gradient(135deg,#fff,#fff4f8);
+  border:2px solid #f4c8dc;
+}
+
+/* ===== FOOTER ===== */
+
+footer{
+  margin-top:50px;
+  padding:40px 20px;
+  text-align:center;
+  background:#321d2c;
+  color:#ffdceb;
+}
+
+footer a{
+  color:#ffafd2;
+  text-decoration:none;
+}
+
+.footer-logo{
+  font-size:25px;
+  letter-spacing:4px;
+  font-weight:bold;
+  margin-bottom:10px;
+}
+
+/* ===== MOBILE ===== */
+
+@media(max-width:600px){
+  .logo{
+    letter-spacing:4px;
+  }
+
+  .section{
+    padding:65px 15px;
+  }
+
+  .title{
+    font-size:30px;
+  }
+
+  .about{
+    padding:25px;
+  }
+
+  .music-box{
+    bottom:10px;
+    right:10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- DECOR -->
+<div class="decor bat bat1">🦇</div>
+<div class="decor bat bat2">🦇</div>
+<div class="decor bat bat3">🦇</div>
+<div class="decor bat bat4">🦇</div>
+<div class="decor ghost1">👻</div>
+<div class="decor ghost2">👻</div>
+<div class="decor pumpkin1">🎃</div>
+<div class="decor pumpkin2">🎃</div>
+
+<!-- MUSIC -->
+<div class="music-box">
+  <button id="musicButton" onclick="toggleMusic()">🎃 Music</button>
+  <input id="volume" type="range" min="0" max="100" value="35">
+  <span id="volumeText">35%</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+
+    <div class="mini">🕯️ HANDMADE • AESTHETIC • AUTUMN</div>
+
+    <div class="logo">CHRISCANDLE</div>
+
+    <h2>candles made with a little bit of magic ✨</h2>
+
+    <p>
+      Ніжні handmade-свічки, осінній настрій,
+      рожевий aesthetic і трішки Halloween magic.
+    </p>
+
+    <button class="main-btn"
+      onclick="document.getElementById('menu').scrollIntoView()">
+      explore collection ✨
+    </button>
+
+  </div>
+</section>
+
+<!-- HALLOWEEN -->
+<div class="halloween-banner">
+  🎃 <span>WELCOME TO</span>
+  <strong>CHRISCANDLE HALLOWEEN</strong>
+  <span>🦇 👻 🕯️</span>
+</div>
+
+<!-- MENU -->
+<div class="menu" id="menu">
+
+  <div class="menu-card"
+    onclick="document.getElementById('halloween').scrollIntoView()">
+    <div class="icon">🎃</div>
+    <h3>Halloween</h3>
+    <p>Осіння колекція</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="document.getElementById('everyday').scrollIntoView()">
+    <div class="icon">🕯️</div>
+    <h3>Свічки</h3>
+    <p>Основна колекція</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="document.getElementById('about').scrollIntoView()">
+    <div class="icon">🤍</div>
+    <h3>Про нас</h3>
+    <p>Наша історія</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="document.getElementById('reviews').scrollIntoView()">
+    <div class="icon">💌</div>
+    <h3>Відгуки</h3>
+    <p>Що кажуть клієнти</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="document.getElementById('order').scrollIntoView()">
+    <div class="icon">🛍️</div>
+    <h3>Замовлення</h3>
+    <p>Обрати свічку</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="document.getElementById('support').scrollIntoView()">
+    <div class="icon">🆘</div>
+    <h3>Підтримка</h3>
+    <p>Потрібна допомога?</p>
+  </div>
+
+  <div class="menu-card"
+    onclick="window.open('https://www.instagram.com/chris_candl/?stkn=MXV0cjR2djdpZ3k4cA%3D%3D&utm_source=qr','_blank')">
+    <div class="icon">📸</div>
+    <h3>Instagram</h3>
+    <p>@chris_candl</p>
+  </div>
+
+</div>
+
+<!-- HALLOWEEN COLLECTION -->
+<section class="section" id="halloween">
+
+  <div style="text-align:center">
+    <span class="collection-label halloween">
+      🎃 AUTUMN & HALLOWEEN COLLECTION
+    </span>
+  </div>
+
+  <h2 class="title">spooky season 🦇</h2>
+
+  <p class="subtitle">
+    Трохи магії, гарбуза і осіннього настрою.
+  </p>
+
+  <div class="products">
+
+    <div class="product halloween">
+      <div class="product-img">🎃</div>
+      <div class="product-info">
+        <h3>Pumpkin Cream</h3>
+        <p>
+          Ніжна гарбузова свічка з атмосферою
+          теплого осіннього вечора.
+        </p>
+        <div class="price">169 грн</div>
+        <span class="seasonal">HALLOWEEN</span>
+      </div>
+    </div>
+
+    <div class="product halloween">
+      <div class="product-img">👻</div>
+      <div class="product-info">
+        <h3>Little Ghost</h3>
+        <p>
+          Маленька ghost-свічка для cute,
+          але трішки spooky атмосфери.
+        </p>
+        <div class="price">149 грн</div>
+        <span class="seasonal">LIMITED</span>
+      </div>
+    </div>
+
+    <div class="product halloween">
+      <div class="product-img">🍪</div>
+      <div class="product-info">
+        <h3>Cookie</h3>
+        <p>
+          Затишна свічка у формі печива —
+          ідеальна для осіннього декору.
+        </p>
+        <div class="price">149 грн</div>
+        <span class="seasonal">AUTUMN</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- EVERYDAY -->
+<section class="section" id="everyday">
+
+  <div style="text-align:center">
+    <span class="collection-label">
+      🩷 EVERYDAY COLLECTION
+    </span>
+  </div>
+
+  <h2 class="title">everyday candles 🕯️</h2>
+
+  <p class="subtitle">
+    Свічки, які хочеться бачити щодня.
+  </p>
+
+  <div class="products">
+
+    <div class="product">
+      <div class="product-img">🍓</div>
+      <div class="product-info">
+        <h3>Strawberry Cream</h3>
+        <p>
+          Рожева полунична естетика —
+          ніжна і дуже cute.
+        </p>
+        <div class="price">159 грн</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img">☕</div>
+      <div class="product-info">
+        <h3>Pink Latte</h3>
+        <p>
+          Ніжний aesthetic для затишних
+          ранків та вечорів.
+        </p>
+        <div class="price">169 грн</div>
+      </div>
+    </div>
+
+    <div class="product">
+      <div class="product-img">🌸</div>
+      <div class="product-info">
+        <h3>Flower</h3>
+        <p>
+          Квіткова форма для красивого
+          декору кімнати.
+        </p>
+        <div class="price">149 грн</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+
+  <h2 class="title">about CHRISCANDLE 🤍</h2>
+
+  <p class="subtitle">маленький бренд з великим настроєм</p>
+
+  <div class="about">
+
+    <p>
+      <strong>CHRISCANDLE</strong> — це handmade-свічки,
+      створені з любов'ю до красивих деталей.
+    </p>
+
+    <br>
+
+    <p>
+      Тут поєднуються рожевий aesthetic,
+      затишна осінь, Halloween і просто
+      маленькі речі, які роблять кімнату особливою.
+    </p>
+
+    <br>
+
+    <p>
+      Кожна свічка — це маленький елемент
+      атмосфери 🕯️
+    </p>
+
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="section" id="reviews">
+
+  <h2 class="title">reviews 💌</h2>
+
+  <p class="subtitle">
+    Нам важливо знати твою думку.
+  </p>
+
+  <div class="reviews">
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <b>Аня</b>
+      <p>Дуже мила свічка! Вона неймовірно виглядає в кімнаті 🩷</p>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <b>Софія</b>
+      <p>Особливо сподобався дизайн. Дуже aesthetic 🎀</p>
+    </div>
+
+    <div class="review">
+      <div class="stars">★★★★★</div>
+      <b>Марія</b>
+      <p>Halloween collection просто вау 🎃</p>
+    </div>
+
+  </div>
+
+  <div class="form-box">
+
+    <h3 style="text-align:center;margin-bottom:10px">
+      Залишити свій відгук 💌
+    </h3>
+
+    <form id="reviewForm">
+
+      <label>Ім'я</label>
+      <input id="reviewName" required>
+
+      <label>Оцінка</label>
+      <select id="rating" required>
+        <option value="">Обери оцінку</option>
+        <option value="5">★★★★★</option>
+        <option value="4">★★★★☆</option>
+        <option value="3">★★★☆☆</option>
+        <option value="2">★★☆☆☆</option>
+        <option value="1">★☆☆☆☆</option>
+      </select>
+
+      <label>Відгук</label>
+      <textarea id="reviewText" required></textarea>
+
+      <button class="submit">
+        💌 Надіслати відгук
+      </button>
+
+    </form>
+
+    <div class="success" id="reviewSuccess">
+      Дякуємо за твій відгук! 🩷
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ORDER -->
+<section class="section" id="order">
+
+  <h2 class="title">place an order 🛍️</h2>
+
+  <p class="subtitle">
+    Обери свічку — і ми зв'яжемося з тобою.
+  </p>
+
+  <div class="form-box">
+
+    <form id="orderForm">
+
+      <label>Ім'я</label>
+      <input id="name" required>
+
+      <label>Свічка</label>
+      <select id="product" required>
+        <option value="">Обери свічку</option>
+        <option value="Pumpkin Cream — 169 грн">Pumpkin Cream — 169 грн</option>
+        <option value="Little Ghost — 149 грн">Little Ghost — 149 грн</option>
+        <option value="Cookie — 149 грн">Cookie — 149 грн</option>
+        <option value="Strawberry Cream — 159 грн">Strawberry Cream — 159 грн</option>
+        <option value="Pink Latte — 169 грн">Pink Latte — 169 грн</option>
+        <option value="Flower — 149 грн">Flower — 149 грн</option>
+      </select>
+
+      <label>Кількість</label>
+      <input id="quantity" type="number" min="1" value="1" required>
+
+      <label>Контакт / телефон</label>
+      <input id="contact" required>
+
+      <label>Email</label>
+      <input id="email" type="email" required>
+
+      <label>Доставка</label>
+      <select id="delivery" required>
+        <option value="">Обери доставку</option>
+        <option value="Нова пошта">Нова пошта</option>
+        <option value="Укрпошта">Укрпошта</option>
+      </select>
+
+      <label>Побажання</label>
+      <textarea id="wishes"
+        placeholder="Наприклад: хочу рожеву упаковку 🎀"></textarea>
+
+      <label>Сума</label>
+      <input id="total" readonly>
+
+      <button class="submit">
+        🕯️ Надіслати замовлення
+      </button>
+
+    </form>
+
+    <div class="success" id="orderSuccess">
+
+      Замовлення успішно надіслано! 🩷<br>
+      Ми зв'яжемося з тобою.
+
+      <br><br>
+
+      <button class="main-btn"
+        onclick="document.getElementById('reviews').scrollIntoView()">
+        💌 Хочеш залишити відгук?
+      </button>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- SUPPORT -->
+<section class="section" id="support">
+
+  <h2 class="title">support 🆘</h2>
+
+  <p class="subtitle">
+    Маєш питання? Напиши нам — звернення прийде прямо в Telegram CHRISCANDLE.
+  </p>
+
+  <div class="form-box support-box">
+
+    <form id="supportForm">
+
+      <label>Ім'я</label>
+      <input id="supportName" required>
+
+      <label>Контакт</label>
+      <input id="supportContact" required
+        placeholder="Телефон або Instagram">
+
+      <label>Email</label>
+      <input id="supportEmail" type="email" required>
+
+      <label>Тема</label>
+      <select id="supportTopic" required>
+        <option value="">Обери тему</option>
+        <option value="Замовлення">🛍️ Замовлення</option>
+        <option value="Доставка">📦 Доставка</option>
+        <option value="Оплата">💳 Оплата</option>
+        <option value="Свічки">🕯️ Свічки</option>
+        <option value="Інше">💌 Інше</option>
+      </select>
+
+      <label>Повідомлення</label>
+      <textarea id="supportMessage"
+        placeholder="Напиши, з чим тобі потрібна допомога..."
+        required></textarea>
+
+      <button class="submit">
+        🆘 Надіслати в підтримку
+      </button>
+
+    </form>
+
+    <div class="success" id="supportSuccess">
+      💌 Твоє звернення надіслано!
+      Ми отримали повідомлення та зв'яжемося з тобою.
+    </div>
+
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section">
+
+  <h2 class="title">little FAQ 🎀</h2>
+
+  <div class="faq">
+
+    <details>
+      <summary>📦 Як здійснюється доставка?</summary>
+      <p style="margin-top:10px">
+        Доступні Нова пошта та Укрпошта.
+      </p>
+    </details>
+
+    <details>
+      <summary>🕯️ Чи можна запитати про свічку?</summary>
+      <p style="margin-top:10px">
+        Так! Напиши нам через службу підтримки.
+      </p>
+    </details>
+
+    <details>
+      <summary>🎃 Чи буде Halloween collection?</summary>
+      <p style="margin-top:10px">
+        Так! Сезонна колекція CHRISCANDLE вже тут.
+      </p>
+    </details>
+
+    <details>
+      <summary>💌 Як залишити відгук?</summary>
+      <p style="margin-top:10px">
+        Перейди до розділу «Відгуки» та заповни форму.
+      </p>
+    </details>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="footer-logo">CHRISCANDLE 🕯️</div>
+
+  <p>
+    handmade candles • pink aesthetic • spooky season
+  </p>
+
+  <br>
+
+  <a href="https://www.instagram.com/chris_candl/?stkn=MXV0cjR2djdpZ3k4cA%3D%3D&utm_source=qr"
+     target="_blank">
+    Instagram @chris_candl
+  </a>
+
+  <br><br>
+
+  <small>© 2026 CHRISCANDLE</small>
+
+</footer>
+
+<script>
+
+const SERVER_URL = "https://chriscandle.onrender.com";
+
+/* ===== ORDER TOTAL ===== */
+
+const prices = {
+  "Pumpkin Cream — 169 грн":169,
+  "Little Ghost — 149 грн":149,
+  "Cookie — 149 грн":149,
+  "Strawberry Cream — 159 грн":159,
+  "Pink Latte — 169 грн":169,
+  "Flower — 149 грн":149
+};
+
+function updateTotal(){
+
+  const product =
+    document.getElementById("product").value;
+
+  const quantity =
+    Number(document.getElementById("quantity").value) || 1;
+
+  const total =
+    prices[product] ? prices[product] * quantity : 0;
+
+  document.getElementById("total").value =
+    total ? total + " грн" : "";
+
+}
+
+document.getElementById("product")
+.addEventListener("change",updateTotal);
+
+document.getElementById("quantity")
+.addEventListener("input",updateTotal);
+
+
+/* ===== ORDER ===== */
+
+document.getElementById("orderForm")
+.addEventListener("submit",async function(e){
+
+  e.preventDefault();
+
+  const button =
+    this.querySelector(".submit");
+
+  button.disabled = true;
+  button.innerText = "Надсилаємо...";
+
+  const data = {
+
+    name:document.getElementById("name").value,
+
+    product:document.getElementById("product").value,
+
+    quantity:document.getElementById("quantity").value,
+
+    contact:document.getElementById("contact").value,
+
+    email:document.getElementById("email").value,
+
+    delivery:document.getElementById("delivery").value,
+
+    wishes:document.getElementById("wishes").value,
+
+    total:document.getElementById("total").value
+
+  };
+
+  try{
+
+    const response =
+      await fetch(SERVER_URL + "/api/order",{
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(data)
+
+      });
+
+    const result =
+      await response.json();
+
+    if(!result.success) throw new Error();
+
+    document.getElementById("orderSuccess")
+      .style.display="block";
+
+    this.reset();
+
+    document.getElementById("total").value="";
+
+  }catch(error){
+
+    alert(
+      "Не вдалося надіслати замовлення. Спробуй ще раз."
+    );
+
+  }
+
+  button.disabled=false;
+  button.innerText="🕯️ Надіслати замовлення";
+
+});
+
+
+/* ===== REVIEW ===== */
+
+document.getElementById("reviewForm")
+.addEventListener("submit",async function(e){
+
+  e.preventDefault();
+
+  const button =
+    this.querySelector(".submit");
+
+  button.disabled=true;
+  button.innerText="Надсилаємо...";
+
+  const data={
+
+    name:
+      document.getElementById("reviewName").value,
+
+    rating:
+      document.getElementById("rating").value,
+
+    review:
+      document.getElementById("reviewText").value
+
+  };
+
+  try{
+
+    const response =
+      await fetch(SERVER_URL + "/api/review",{
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(data)
+
+      });
+
+    const result =
+      await response.json();
+
+    if(!result.success) throw new Error();
+
+    document.getElementById("reviewSuccess")
+      .style.display="block";
+
+    this.reset();
+
+  }catch(error){
+
+    alert(
+      "Не вдалося надіслати відгук. Спробуй ще раз."
+    );
+
+  }
+
+  button.disabled=false;
+  button.innerText="💌 Надіслати відгук";
+
+});
+
+
+/* ===== SUPPORT ===== */
+
+document.getElementById("supportForm")
+.addEventListener("submit",async function(e){
+
+  e.preventDefault();
+
+  const button =
+    this.querySelector(".submit");
+
+  button.disabled=true;
+  button.innerText="Надсилаємо...";
+
+  const data={
+
+    name:
+      document.getElementById("supportName").value,
+
+    contact:
+      document.getElementById("supportContact").value,
+
+    email:
+      document.getElementById("supportEmail").value,
+
+    topic:
+      document.getElementById("supportTopic").value,
+
+    message:
+      document.getElementById("supportMessage").value
+
+  };
+
+  try{
+
+    const response =
+      await fetch(SERVER_URL + "/api/support",{
+
+        method:"POST",
+
+        headers:{
+          "Content-Type":"application/json"
+        },
+
+        body:JSON.stringify(data)
+
+      });
+
+    const result =
+      await response.json();
+
+    if(!result.success) throw new Error();
+
+    document.getElementById("supportSuccess")
+      .style.display="block";
+
+    this.reset();
+
+  }catch(error){
+
+    alert(
+      "Не вдалося надіслати звернення. Спробуй ще раз."
+    );
+
+  }
+
+  button.disabled=false;
+  button.innerText="🆘 Надіслати в підтримку";
+
+});
+
+
+/* ===== MUSIC ===== */
+
+let audioContext=null;
+let masterGain=null;
+let musicInterval=null;
+let musicOn=false;
+let volume=.35;
+
+const melody=[
+  196,196,233,196,
+  174,196,261,233,
+  196,196,293,261,
+  233,196,174,196
+];
+
+function playNote(frequency,duration=.45){
+
+  if(!audioContext)return;
+
+  const oscillator=
+    audioContext.createOscillator();
+
+  const gain=
+    audioContext.createGain();
+
+  oscillator.type="triangle";
+
+  oscillator.frequency.setValueAtTime(
+    frequency,
+    audioContext.currentTime
+  );
+
+  gain.gain.setValueAtTime(
+    .0001,
+    audioContext.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .13,
+    audioContext.currentTime+.04
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .0001,
+    audioContext.currentTime+duration
+  );
+
+  oscillator.connect(gain);
+  gain.connect(masterGain);
+
+  oscillator.start();
+
+  oscillator.stop(
+    audioContext.currentTime+duration
+  );
+}
+
+function playBass(){
+
+  if(!audioContext)return;
+
+  const oscillator=
+    audioContext.createOscillator();
+
+  const gain=
+    audioContext.createGain();
+
+  oscillator.type="sine";
+
+  oscillator.frequency.value=98;
+
+  gain.gain.setValueAtTime(
+    .0001,
+    audioContext.currentTime
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .05,
+    audioContext.currentTime+.05
+  );
+
+  gain.gain.exponentialRampToValueAtTime(
+    .0001,
+    audioContext.currentTime+.8
+  );
+
+  oscillator.connect(gain);
+  gain.connect(masterGain);
+
+  oscillator.start();
+
+  oscillator.stop(
+    audioContext.currentTime+.8
+  );
+}
+
+function startMusic(){
+
+  let i=0;
+
+  playNote(melody[i]);
+
+  musicInterval=setInterval(()=>{
+
+    i++;
+
+    if(i>=melody.length)i=0;
+
+    playNote(melody[i],.5);
+
+    if(i%4===0)playBass();
+
+  },550);
+}
+
+function stopMusic(){
+
+  if(musicInterval){
+
+    clearInterval(musicInterval);
+    musicInterval=null;
+
+  }
+
+}
+
+async function toggleMusic(){
+
+  if(!audioContext){
+
+    audioContext=
+      new(window.AudioContext ||
+      window.webkitAudioContext)();
+
+    masterGain=
+      audioContext.createGain();
+
+    masterGain.gain.value=volume;
+
+    masterGain.connect(
+      audioContext.destination
+    );
+
+  }
+
+  if(audioContext.state==="suspended"){
+    await audioContext.resume();
+  }
+
+  if(!musicOn){
+
+    musicOn=true;
+
+    startMusic();
+
+    document.getElementById("musicButton")
+      .innerText="🔇 ON";
+
+  }else{
+
+    musicOn=false;
+
+    stopMusic();
+
+    document.getElementById("musicButton")
+      .innerText="🎃 Music";
+
+  }
+
+}
+
+document.getElementById("volume")
+.addEventListener("input",function(){
+
+  const value=Number(this.value);
+
+  volume=value/100;
+
+  document.getElementById("volumeText")
+    .innerText=value+"%";
+
+  if(masterGain){
+    masterGain.gain.value=volume;
+  }
+
+});
+
+</script>
+
+</body>
+</html>
